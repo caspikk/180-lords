@@ -43,7 +43,7 @@
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
     <div class="w3-display-middle w3-center">
-        <span class="w3-text-dark-grey" style="font-size:60px;">
+        <span class="w3-text-light-grey" style="font-size:60px;">
             Industry Occupation and Health Status:<br>
             A Classification Study
         </span>
@@ -67,12 +67,15 @@
         <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">METHODS</span></h5>
         <p><strong>Data Cleaning</strong></p>
         <p>The 4 datasets that we will be reading and using for this project are messy and in need of preprocessing, so we first go through some data cleaning.</p>
-        <p>First, using a <span class="w3-tag">dictionary</span>, we rename the column names of <span class="w3-tag">Answers dataframes</span> to match that of the <span class="w3-tag">Codes Dataframes</span>.</p>
+        <p>Using a <span class="w3-tag">dictionary</span>, we rename the column names of <strong>Answers dataframes</strong> to match that of the <strong>Codes Dataframes</strong>.</p>
         <p>Next, we replace the empty spaces with <span class="w3-tag">NumPy NaN</span> so that we can use <span class="w3-tag">dropna()</span> to remove these data points. We also proceed to remove other dataframes, following the conditions: (1) each column that has at least <strong>60%</strong> and <strong>80%</strong> of its data missing, (2) each respondent that has at least <strong>2</strong> and <strong>0</strong> missing entries, and (3) all remaining columns with at least <strong>1</strong> missing value.</p>
-        <p>Finally, we convert the data type of the entire dataframe of all Object columns to 64-bit integers using <span class="w3-tag">astype()</span>. Note that we count answer <strong>I DON'T KNOW</strong> as 0 and the 6 possible answers of the <span class="w3-tag">Health status</span> column to 3 different answers instead -- 1-2 for Great Health, 3 for Moderate Health, and 4-5 for Poor Health.</p>
+        <p>Finally, we convert the data type of the entire dataframe of all Object columns to 64-bit integers using <span class="w3-tag">astype()</span>. Note that we count the answer <strong>I DON'T KNOW</strong> as 0 and the 6 possible answers of the <strong>Health status</strong> column to 3 different answers instead -- 1-2 for Great Health, 3 for Moderate Health, and 4-5 for Poor Health.</p>
         <p><strong>Data Exploration</strong></p>
+        <p>We merge the <strong>Labor</strong> and <strong>Health</strong> datasets together using the <span class="w3-tag">merge()</span> function. This performs an <span class="w3-tag">INNER JOIN</span> operation between the two. Then, let's view the dimensions of this newly merged dataframe.</p>
+        <img src="merged-data-results.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <p>We have a problem as <strong>5002256 IS WAY TOO MUCH</strong>. So, we filter out a percentage of the dataframe based on the rows. We initialize a starting point of where we want the "cut" to happen then filter out the next <strong>0.25%</strong> of our Dataframe. This should leave us with about 12,000 rows, which is just enough before our devices start to explode.</p>
         <p><strong>Model Training</strong></p>
-        <p>The selected model is the well-known <span class="w3-tag">RandomForestClassifier</span> from the <span class="w3-tag">scikit-learn</span> Machine Learning Library . A <strong>Random Forest Classifier</strong> is an ensemble learning algorithm used for classification tasks similar to ours. It combines multiple decision trees to create a more accurate and robust model.</p>
+        <p>The selected model is the well-known <span class="w3-tag">RandomForestClassifier</span> from the <span class="w3-tag">scikit-learn</span> Machine Learning Library. A <strong>Random Forest Classifier</strong> is an ensemble learning algorithm used for classification tasks similar to ours. It combines multiple decision trees to create a more accurate and robust model.</p>
         <p>For the purposes of the project, this is what will be used in order to predict the Health Status of an individual. The feature variables are going to comprise of the respondent's Work-related, Health-related, and Demographical Background. Using the <span class="w3-tag">train_test_split</span> method, <strong>70%</strong> of the data will be for training while <strong>30%</strong> will be for testing.</p>
         <p>Let's fit and predict the "vanilla" version of our Model (without any enhancements) and see how it fairs.</p>
         <img src="initial-accuracy-report.png" style="width:100%;max-width:1000px" class="w3-margin-top">
