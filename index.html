@@ -18,10 +18,6 @@
           background-image: url("medical.jpg");
           min-height: 75%;
         }
-        
-        .menu {
-          display: none;
-        }
         </style>
 </head>
 <body>
@@ -46,9 +42,10 @@
 
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
-    <div class="w3-display-middle w3-center">
+    <div class="w3-display-topmiddle w3-center">
         <span class="w3-text-white" style="font-size:64px; -webkit-text-stroke-width:1px; -webkit-text-stroke-color:black;">
-            Industry Occupation and Health Status: A Classification Study
+            Industry Occupation and Health Status:
+            A Classification Study
         </span>
     </div>
     <div class="w3-display-bottommiddle w3-center w3-padding-large w3-hide-small">
@@ -75,7 +72,7 @@
         <p>For the purposes of the project, this is what will be used in order to predict the Health Status of an individual. The feature variables are going to comprise of the respondent's Work-related, Health-related, and Demographical Background. Using the <span class="w3-tag">train_test_split</span> method, <strong>70%</strong> of the data will be for training while <strong>30%</strong> will be for testing.</p>
         <p>Let's fit and predict the "vanilla" version of our Model (without any enhancements) and see how it fairs.</p>
         <img src="initial-accuracy-report.png" style="width:100%;max-width:1000px" class="w3-margin-top">
-        <p>ACCURACY REPORT: 85.31%</p>
+        <p>ACCURACY REPORT: 69.27%</p>
         <p>We can do better so let's aim for higher than 90%. There is too much <strong>data that does not match the model</strong>, but where exactly?</p>
         <p></p>
     </div>
