@@ -68,10 +68,22 @@
         <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">METHODS</span></h5>
         <p><strong>Data Cleaning</strong></p>
         <p>The 4 datasets that we will be reading and using for this project are messy and in need of preprocessing, so we first go through some data cleaning.</p>
-        <img src="health_code.png" style="width:100%;max-width:1000px" class="w3-margin-top">
-        <img src="health_answers.png" style="width:100%;max-width:1000px" class="w3-margin-top">
-        <img src="labor_code.png" style="width:100%;max-width:1000px" class="w3-margin-top">
-        <img src="labor_answers.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <figure>
+            <img src="health_code.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+            <figcaption>Health Codes Dataset</figcaption>
+        </figure>
+        <figure>
+            <img src="health_answers.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+            <figcaption>Health Answers Dataset</figcaption>
+        </figure>
+        <figure>
+            <img src="labor_code.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+            <figcaption>Labor Codes Dataset</figcaption>
+        </figure>
+        <figure>
+            <img src="labor_answers.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+            <figcaption>Labor Answers Dataset</figcaption>
+        </figure>
         <p>Using a <span class="w3-tag">dictionary</span>, we rename the column names of <strong>Answers dataframes</strong> to match that of the <strong>Codes Dataframes</strong>.</p>
         <p>Next, we replace the empty spaces with <span class="w3-tag">NumPy NaN</span> so that we can use <span class="w3-tag">dropna()</span> to remove these data points. We also proceed to remove other dataframes, following the conditions: (1) each column that has at least <strong>60%</strong> and <strong>80%</strong> of its data missing, (2) each respondent that has at least <strong>2</strong> and <strong>0</strong> missing entries, and (3) all remaining columns with at least <strong>1</strong> missing value.</p>
         <p>Finally, we convert the data type of the entire dataframe of all Object columns to 64-bit integers using <span class="w3-tag">astype()</span>. Note that we count the answer <strong>I DON'T KNOW</strong> as 0 and the 6 possible answers of the <strong>Health status</strong> column to 3 different answers instead -- 1-2 for Great Health, 3 for Moderate Health, and 4-5 for Poor Health.</p>
