@@ -67,6 +67,10 @@
         <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">METHODS</span></h5>
         <p><strong>Data Cleaning</strong></p>
         <p>The 4 datasets that we will be reading and using for this project are messy and in need of preprocessing, so we first go through some data cleaning.</p>
+        <img src="health_code.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <img src="health_answers.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <img src="labor_code.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <img src="labor_answers.png" style="width:100%;max-width:1000px" class="w3-margin-top">
         <p>Using a <span class="w3-tag">dictionary</span>, we rename the column names of <strong>Answers dataframes</strong> to match that of the <strong>Codes Dataframes</strong>.</p>
         <p>Next, we replace the empty spaces with <span class="w3-tag">NumPy NaN</span> so that we can use <span class="w3-tag">dropna()</span> to remove these data points. We also proceed to remove other dataframes, following the conditions: (1) each column that has at least <strong>60%</strong> and <strong>80%</strong> of its data missing, (2) each respondent that has at least <strong>2</strong> and <strong>0</strong> missing entries, and (3) all remaining columns with at least <strong>1</strong> missing value.</p>
         <p>Finally, we convert the data type of the entire dataframe of all Object columns to 64-bit integers using <span class="w3-tag">astype()</span>. Note that we count the answer <strong>I DON'T KNOW</strong> as 0 and the 6 possible answers of the <strong>Health status</strong> column to 3 different answers instead -- 1-2 for Great Health, 3 for Moderate Health, and 4-5 for Poor Health.</p>
@@ -81,7 +85,14 @@
         <img src="initial-accuracy-report.png" style="width:100%;max-width:1000px" class="w3-margin-top">
         <p>ACCURACY REPORT: 69.27%</p>
         <p>We can do better so let's aim for higher than 90%. There is too much <strong>data that does not match the model</strong>, but where exactly?</p>
-        <p></p>
+        <p>One, comes from the several columns where most respondents answered a <span class="w3-tag">0</span> instead of a <span class="w3-tag">1</span>, and the other comes from the <strong>low F1-Score</strong> <span class="w3-tag">0.16</span> of <strong>Class 4</strong>, indicating an existing <strong>Class Imbalance</strong>.</p>
+        <p>To fix these problems, we do these three things:</p> 
+        <p>(1) <strong>NORMALIZATION:</strong> Using the <span class="w3-tag">StandardScaler()</span> method, let's adjust the values to a common scale so that the Model can better compare the data points to each other.</p>
+        <p>(2) <strong>CLASS IMBALANCE:</strong> Using <span class="w3-tag">SMOTE()</span>, the "Synthetic Minority Over-sampling Technique" method, let's balance the Class Distributions by randomly increasing minority class data points.</p>
+        <p>(3) <strong>FEATURE SELECTION:</strong> Finally, using <span class="w3-tag">RFECV()</span>, also known as "Recursive Feature Elimination", let's select and filter out the most relevant columns to our Model.</p>
+        <img src="final-accuracy-report.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <p>ACCURCAY REPORT: 86.25%</p>
+        <p>Just three major adjustments were all we needed in order for us to reach our goal.</p>
     </div>
 </div>
 
