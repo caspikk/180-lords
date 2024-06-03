@@ -104,7 +104,7 @@
         <p>Let's fit and predict the "vanilla" version of our Model (without any enhancements) and see how it fairs.</p>
         <img src="initial-accuracy-report.png" style="width:100%;max-width:1000px" class="w3-margin-top">
         <p>ACCURACY REPORT: 69.27%</p>
-        <p>We can do better so let's aim for higher than 90%. There is too much <strong>data that does not match the model</strong>, but where exactly?</p>
+        <p>We can do better so let's aim for higher than 75%. There is too much <strong>data that does not match the model</strong>, but where exactly?</p>
         <p>One, comes from the several columns where most respondents answered a <span class="w3-tag">0</span> instead of a <span class="w3-tag">1</span>, and the other comes from the <strong>low F1-Score</strong> <span class="w3-tag">0.16</span> of <strong>Class 4</strong>, indicating an existing <strong>Class Imbalance</strong>.</p>
         <p>To fix these problems, we do these three things:</p> 
         <p>(1) <strong>NORMALIZATION:</strong> Using the <span class="w3-tag">StandardScaler()</span> method, let's adjust the values to a common scale so that the Model can better compare the data points to each other.</p>
@@ -112,7 +112,7 @@
         <p>(3) <strong>FEATURE SELECTION:</strong> Finally, using <span class="w3-tag">RFECV()</span>, also known as "Recursive Feature Elimination", let's select and filter out the most relevant columns to our Model.</p>
         <img src="final-accuracy-report.png" style="width:100%;max-width:1000px" class="w3-margin-top">
         <p>ACCURCAY REPORT: 86.25%</p>
-        <p>Just three major adjustments were all we needed in order for us to reach our goal.</p>
+        <p>Perfect! Just three major adjustments were all we needed in order for us to reach our goal.</p>
     </div>
 </div>
 
@@ -133,6 +133,7 @@
 <div class="w3-container" id="conclusion" style="padding-bottom:32px;">
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">CONCLUSION</span></h5>
+    <p>Using machine learning, with an accuracy of <strong>86%</strong>, we see that the agricultural sector has the highest while the army has the lowest health status self-rating. We also have an an incline representing which sectors have better or worse health status self-ratings, which can be used as a guideline for the distribution of health care services. However, it also only becomes more clear that the distributon of health care services should be equal as these health status self-ratings do not differ from each other by a lot, ranging from only about <strong>2.1</strong> to <strong>2.5</strong> in a max range of 1 to 3.</p>
   </div>
 </div>
 
