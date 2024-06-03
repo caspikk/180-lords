@@ -15,7 +15,7 @@
         .bgimg {
           background-position: center;
           background-size: cover;
-          background-image: url("medical.png");
+          background-image: url("medical.jpg");
           min-height: 75%;
         }
         
@@ -68,12 +68,16 @@
 <div class="w3-container" id="methods">
     <div class="w3-content" style="max-width:700px">
         <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">METHODS</span></h5>
+        <p><strong>Data Preprocessing</strong></p>
+
+        <p><strong>Model Training</strong></p>
         <p>The selected model is the well-known <span class="w3-tag">RandomForestClassifier</span> from the <span class="w3-tag">scikit-learn</span> Machine Learning Library . A <strong>Random Forest Classifier</strong> is an ensemble learning algorithm used for classification tasks similar to ours. It combines multiple decision trees to create a more accurate and robust model.</p>
         <p>For the purposes of the project, this is what will be used in order to predict the Health Status of an individual. The feature variables are going to comprise of the respondent's Work-related, Health-related, and Demographical Background. Using the <span class="w3-tag">train_test_split</span> method, <strong>70%</strong> of the data will be for training while <strong>30%</strong> will be for testing.</p>
         <p>Let's fit and predict the "vanilla" version of our Model (without any enhancements) and see how it fairs.</p>
         <img src="initial-accuracy-report.png" style="width:100%;max-width:1000px" class="w3-margin-top">
         <p>ACCURACY REPORT: 85.31%</p>
         <p>We can do better so let's aim for higher than 90%. There is too much <strong>data that does not match the model</strong>, but where exactly?</p>
+        <p></p>
     </div>
 </div>
 
