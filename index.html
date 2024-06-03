@@ -86,15 +86,19 @@
         </figure>
         <p>Using a <span class="w3-tag">dictionary</span>, we rename the column names of <strong>Answers dataframes</strong> to match that of the <strong>Codes Dataframes</strong>.</p>
         <p>Next, we replace the empty spaces with <span class="w3-tag">NumPy NaN</span> so that we can use <span class="w3-tag">dropna()</span> to remove these data points. Let's define additional conditions for our dataframes (in respect to Health and Labor Dataframes):</p> 
-        <p>(1) If at least <strong>60%</strong> and <strong>80%</strong> of the data of a column is missing, for each Dataframe respectively, we remove the entire column from our dataframe</p>
-        <p>(2) Each respondent that has at least <strong>3</strong> and <strong>1</strong> missing entries, for each Dataframe respecively, will be remove</p>
+        <p>(1) If at least <strong>60%</strong> and <strong>80%</strong> of the data of a column is missing, for each Dataframe respectively, we remove the entire column from our dataframe.</p>
+        <p>(2) Each respondent that has at least <strong>3</strong> and <strong>1</strong> missing entries, for each Dataframe respecively, will be removed.</p>
         <p>(3) Drop all remaining columns with at least <strong>1</strong> missing value.</p>
         <p>Finally, we convert the data type of the entire dataframe of all Object columns to 64-bit integers using <span class="w3-tag">astype()</span>. Note that we count the answer <span class="w3-tag">I DON'T KNOW</span> as 0, and the 6 possible answers of the <strong>Health status</strong> column to 3 different answers instead -- 1-2 for Great Health, 3 for Moderate Health, and 4-5 for Poor Health.</p>
         <p><strong>Data Exploration</strong></p>
         <p>We merge the <strong>Labor</strong> and <strong>Health</strong> datasets together using the <span class="w3-tag">merge()</span> function. This performs an <span class="w3-tag">INNER JOIN</span> operation between the two. Then, let's view the dimensions of this newly merged dataframe.</p>
         <img src="merged-data-results.png" style="width:100%;max-width:1000px" class="w3-margin-top">
         <p>We have a problem as <strong>5002256 IS WAY TOO MUCH</strong>. So, we filter out a percentage of the dataframe based on the rows. We initialize a starting point of where we want the "cut" to happen then filter out the next <strong>0.25%</strong> of our Dataframe. This should leave us with about 12,000 rows, which is just about enough for our devices to still withstand.</p>
-        <p><strong>Model Training</strong></p>
+        <p><strong>Machine Learning</strong></p>
+        <p>Before continuing, let's quickly go through some other popular Machine Learning Classifier Models too so that we can get a feel of what we are dealing with. The models are the ones used below:</p>
+        <p>1. <span class="w3-tag">Support Vector Machine</span>: 68.55% Initial Accuracy</p>
+        <p>2. <span class="w3-tag">K-Nearest Neighbors</span>: 62.74% Initial Accuracy</p>
+        <p>3. <span class="w3-tag">Naive Bayes</span>: 66.68% Initial Accuracy</p>
         <p>The selected model is the well-known <span class="w3-tag">RandomForestClassifier</span> from the <span class="w3-tag">scikit-learn</span> Machine Learning Library. A <strong>Random Forest Classifier</strong> is an ensemble learning algorithm used for classification tasks similar to ours. It combines multiple decision trees to create a more accurate and robust model.</p>
         <p>For the purposes of the project, this is what will be used in order to predict the Health Status of an individual. The feature variables are going to comprise of the respondent's Work-related, Health-related, and Demographical Background. Using the <span class="w3-tag">train_test_split</span> method, <strong>70%</strong> of the data will be for training while <strong>30%</strong> will be for testing.</p>
         <p>Let's fit and predict the "vanilla" version of our Model (without any enhancements) and see how it fairs.</p>
