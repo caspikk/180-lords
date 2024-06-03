@@ -113,6 +113,12 @@
 <div class="w3-container" id="results">
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">RESULTS</span></h5>
+    <p>As we have established, <span class="w3-tag">Precision</span> is the measure of how many of the Health Status predictions were actually correct. A Precision of 0.80 for the "Great" Health Status means that 80% of the predictions that the Model made for the said Class (Class 2) were correct. Similarly, 86% of the predictions for the "Moderate" Health Status and 92% for the "Poor" Health Status were accurate.</p>
+    <p>Meanwhile, once again, <span class="w3-tag">Recall</span> measures how well the model identifies all actual positives in each class. The Recall for the "Great" Health Status is 0.88, indicating that the model correctly identified 88% of the individuals who actually reported "Great" Health Status. For the "Moderate" Health Status, the Recall is 0.76, meaning 76% of the true "Moderate" cases were captured by the model, and for the "Poor" Health Status, the model successfully identified 96% of the actual cases.</p>
+    <p><span class="w3-tag">F1-Score</span> provides a balance between Precision and Recall. In this context, an F1-Score of 0.84 for the "Great" Health Status indicates a good balance between correctly identifying actual positives and minimizing false positives. As for the "Moderate" Health Status, the F1-Score is 0.81, suggesting a more moderate balance. Lastly, the "Poor" Health Status boasts a high F1-Score of 0.94, reflecting an excellent balance between Precision and Recall.</p>
+    <p><span class="w3-tag">Support</span> represents the actual number of instances for each Health Status in the dataset. There are 2525 instances of the "Great" Health Status, 2565 instances of the "Moderate" Health Status, and 2523 instances of the "Poor" Health Status after using <span class="w3-tag">SMOTE()</span> for Over-sampling. Afterwards, we have <span class="w3-tag">Macro Avg</span>, which calculates the average of Precision, Recall, and F1-Score across all classes without considering the class distribution. Correspondingly, we also have the <span class="w3-tag">Weighted Avg</span>, which takes into account the number of instances in each class. Both of these Averages measure around 86%.</p>
+    <img src="health-matrix.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+    <img src="health-status-mean-by-group.png" style="width:100%;max-width:1000px" class="w3-margin-top">
   </div>
 </div>
 
