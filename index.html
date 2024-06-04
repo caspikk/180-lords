@@ -35,9 +35,6 @@
         <div class="w3-col s3">
             <a href="#results" class="w3-button w3-block w3-black">RESULTS</a>
         </div>
-        <div class="w3-col s3">
-            <a href="#conclusion" class="w3-button w3-block w3-black">CONCLUSION</a>
-        </div>
   </div>
 </div>
 
@@ -127,14 +124,6 @@
     <p><span class="w3-tag">F1-Score</span> provides a balance between Precision and Recall. In this context, an F1-Score of 0.84 for the "Great" Health Status indicates a good balance between correctly identifying actual positives and minimizing false positives. As for the "Moderate" Health Status, the F1-Score is 0.81, suggesting a more moderate balance. Lastly, the "Poor" Health Status boasts a high F1-Score of 0.94, reflecting an excellent balance between Precision and Recall.</p>
     <p><span class="w3-tag">Support</span> represents the actual number of instances for each Health Status in the dataset. There are 2525 instances of the "Great" Health Status, 2565 instances of the "Moderate" Health Status, and 2523 instances of the "Poor" Health Status after using <span class="w3-tag">SMOTE()</span> for Over-sampling. Afterwards, we have <span class="w3-tag">Macro Avg</span>, which calculates the average of Precision, Recall, and F1-Score across all classes without considering the class distribution. Correspondingly, we also have the <span class="w3-tag">Weighted Avg</span>, which takes into account the number of instances in each class. Both of these Averages measure around 86%.</p>
     <img src="health-matrix.png" style="width:100%;max-width:1000px" class="w3-margin-top">
-  </div>
-</div>
-
-<!-- CONCLUSION Container -->
-<div class="w3-container" id="conclusion" style="padding-bottom:32px;">
-  <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">CONCLUSION</span></h5>
-    <p>Using machine learning, with an accuracy of <strong>86%</strong>, we see that the agricultural sector has the highest while the army has the lowest health status self-rating. We also have an an incline representing which sectors have better or worse health status self-ratings, which can be used as a guideline for the distribution of health care services. However, it also only becomes more clear that the distributon of health care services should be equal as these health status self-ratings do not differ from each other by a lot, ranging from only about <strong>2.1</strong> to <strong>2.5</strong> in a max range of 0 to 3.</p>
   </div>
 </div>
 
