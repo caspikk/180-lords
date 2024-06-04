@@ -89,8 +89,10 @@
         <p>(1) If at least <strong>60%</strong> and <strong>80%</strong> of the data of a column is missing, for each Dataframe respectively, we remove the entire column from our dataframe.</p>
         <p>(2) Each respondent that has at least <strong>3</strong> and <strong>1</strong> missing entries, for each Dataframe respecively, will be removed.</p>
         <p>(3) Drop all remaining columns with at least <strong>1</strong> missing value.</p>
-        <p>Finally, we convert the data type of the entire dataframe of all Object columns to 64-bit integers using <span class="w3-tag">astype()</span>. Note that we count the answer <span class="w3-tag">I DON'T KNOW</span> as 0, and the 6 possible answers of the <strong>Health status</strong> column to 3 different answers instead -- 1-2 for Great Health, 3 for Moderate Health, and 4-5 for Poor Health.</p>
+        <p>Finally, we convert the data type of the entire dataframe of all Object columns to 64-bit integers using <span class="w3-tag">astype()</span>. </p>
         <p><strong>Data Exploration</strong></p>
+        <p>Additionally, we convert other values so we count the answer <span class="w3-tag">I DON'T KNOW</span> as 0, and the 6 possible answers of the <strong>Health status</strong> column to 3 different answers instead -- 1-2 for Great Health, 3 for Moderate Health, and 4-5 for Poor Health.</p>
+        <img src="health-status-mean-by-group.png" style="width:100%;max-width:1000px" class="w3-margin-top">
         <p>We merge the <strong>Labor</strong> and <strong>Health</strong> datasets together using the <span class="w3-tag">merge()</span> function. This performs an <span class="w3-tag">INNER JOIN</span> operation between the two. Then, let's view the dimensions of this newly merged dataframe.</p>
         <img src="merged-data-results.png" style="width:100%;max-width:1000px" class="w3-margin-top">
         <p>We have a problem as <strong>5002256 IS WAY TOO MUCH</strong>. So, we filter out a percentage of the dataframe based on the rows. We initialize a starting point of where we want the "cut" to happen then filter out the next <strong>0.25%</strong> of our Dataframe. This should leave us with about 12,000 rows, which is just about enough for our devices to still withstand.</p>
@@ -125,7 +127,6 @@
     <p><span class="w3-tag">F1-Score</span> provides a balance between Precision and Recall. In this context, an F1-Score of 0.84 for the "Great" Health Status indicates a good balance between correctly identifying actual positives and minimizing false positives. As for the "Moderate" Health Status, the F1-Score is 0.81, suggesting a more moderate balance. Lastly, the "Poor" Health Status boasts a high F1-Score of 0.94, reflecting an excellent balance between Precision and Recall.</p>
     <p><span class="w3-tag">Support</span> represents the actual number of instances for each Health Status in the dataset. There are 2525 instances of the "Great" Health Status, 2565 instances of the "Moderate" Health Status, and 2523 instances of the "Poor" Health Status after using <span class="w3-tag">SMOTE()</span> for Over-sampling. Afterwards, we have <span class="w3-tag">Macro Avg</span>, which calculates the average of Precision, Recall, and F1-Score across all classes without considering the class distribution. Correspondingly, we also have the <span class="w3-tag">Weighted Avg</span>, which takes into account the number of instances in each class. Both of these Averages measure around 86%.</p>
     <img src="health-matrix.png" style="width:100%;max-width:1000px" class="w3-margin-top">
-    <img src="health-status-mean-by-group.png" style="width:100%;max-width:1000px" class="w3-margin-top">
   </div>
 </div>
 
